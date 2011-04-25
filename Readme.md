@@ -4,4 +4,4 @@ Highballr is currently an experimental [Safari Extension][1] which allows you to
 
 Easy.
 
-[1] https://extensions.apple.com/ "Apple's Safari Extensions Gallery"
+[1]: https://extensions.apple.com/ "Apple's Safari Extensions Gallery"
