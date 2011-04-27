@@ -1,0 +1,38 @@
+<script type="text/javascript">
+  // Event hadler for opening the contextual menu, adds our nice menu item
+  function handleContextMenu(event){
+    console.debug(event.userInfo);
+
+    event.contextMenu.appendContextMenuItem('post-to-tumblr',
+      'Post to Tumblr');
+  };
+
+  // Not entirely sure this will be useful at all
+  function validationHandler(huh){
+  };
+
+  function commandHandler(event){
+    // this could get other commands make sure we are only working with the
+    // right one
+    if (event.command !== "post-to-tumblr") { return; }
+
+    console.debug('something awesome is going to happen here...');
+  };
+
+  // add a listener for the context menu coming up and add an item when it
+  // does
+  safari
+    .application
+    .addEventListener('contextmenu', handleContextMenu, false);
+
+  //
+  safari
+    .application
+    .addEventListener('command', commandHandler, false);
+
+  //
+  safari
+    .application
+    .addEventListener("validate", validationHandler, false);
+
+</script>

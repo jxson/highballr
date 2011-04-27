@@ -15,20 +15,31 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
-	<dict/>
+	<dict>
+		<key>Global Page</key>
+		<string>global.html</string>
+	</dict>
 	<key>Content</key>
 	<dict>
 		<key>Scripts</key>
-		<dict/>
+		<dict>
+			<key>Start</key>
+			<array>
+				<string>javascripts/injected.js</string>
+			</array>
+		</dict>
 	</dict>
 	<key>Description</key>
-	<string>Post any images to Tumblr via right click </string>
+	<string>Post any images to Tumblr via ctrl click </string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
 	<dict>
 		<key>Website Access</key>
-		<dict/>
+		<dict>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
 	</dict>
 	<key>Website</key>
 	<string>http://highballr.com</string>
