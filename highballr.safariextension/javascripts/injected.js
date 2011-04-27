@@ -1,5 +1,3 @@
-console.debug('hi')
-
 // Gets info from the DOM
 function contextMenuHandler(event){
   console.debug(event.target.nodeName)
