@@ -28,6 +28,10 @@
 				<string>javascripts/injected.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>stylesheets/highballr-iframe.css</string>
+		</array>
 	</dict>
 	<key>Description</key>
 	<string>Post any images to Tumblr via ctrl click </string>
