@@ -7,23 +7,29 @@ yepnope.addPrefix( 'wax', function ( resource ) {
       id = resource.url.replace(/.mustache/, '').replace(/(.*)\//, ''),
       xhr = new(XMLHttpRequest);
 
+  var injectMustache = function(xhr){
+    script = document.createElement( 'script' );
+    script.type = 'text/html';
+    script.id = id;
+    script.appendChild(document.createTextNode(xhr.responseText));
+
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
   xhr.open('GET', resource.url, false);
   xhr.setRequestHeader('Accept','text/plain');
   xhr.send(null);
 
   if (isFileProtocol) {
     if (xhr.status === 0) {
-      script = document.createElement( 'script' );
-      script.type = 'text/html';
-      script.id = id;
-      script.appendChild(document.createTextNode(xhr.responseText));
-
-      document.getElementsByTagName('head')[0].appendChild(script);
+      injectMustache(xhr);
     } else {
       console.error('something bad happened');
     }
   } else {
-    console.debug('TODO: normal non-file xhr')
+    if (xhr.status >= 200 && xhr.status < 300) {
+      injectMustache(xhr);
+    }
   }
 
   return resource;

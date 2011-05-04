@@ -5,9 +5,44 @@
     var ifr = parent.document.getElementById("highballr-iframe");
     ifr.parentNode.removeChild(ifr)
   </script> -->
+
+  <script src="javascripts/libraries/yepnope.js"></script>
+  <script src="javascripts/libraries/yepnope.wax.js"></script>
 </head>
 
 <body>
-  <a href="#" onclick="">close</a>
+  <script type="text/javascript">
+    yepnope({
+      load: [
+        'javascripts/libraries/zepto.js',
+        'javascripts/libraries/underscore.js',
+        'javascripts/libraries/backbone.js',
+        'javascripts/libraries/icanhaz.js'
+      ],
+      callback: function (url, result, key) {
+        console.debug(url, result, key)
+      },
+      complete: function () {
+        console.debug('library dependencies loaded...');
+
+        yepnope({
+          load: [
+            'wax!templates/login.mustache',
+            'javascripts/highballr.js',
+            'javascripts/models/authenticator.js',
+            'javascripts/views/login-view.js'
+          ],
+          callback: function (url, result, key) {
+            console.debug(url, result, key)
+          },
+          complete: function(){
+            console.debug('app dependencies loaded, running now...')
+            new Highballr();
+            Backbone.history.start();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
